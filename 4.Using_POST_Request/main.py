@@ -1,11 +1,12 @@
 from fastapi import FastAPI, Path, HTTPException, Query
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field, computed_field
-from typing import Annotated, Literal
+from typing import Annotated, Literal, Optional
 import json
   
 app = FastAPI()
 
+# pydantic model use to create new patient
 class Patient(BaseModel):
 
     id : Annotated[str, Field(..., description = 'ID of the patient', examples = ['P001'])]
